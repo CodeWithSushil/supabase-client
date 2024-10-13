@@ -1,4 +1,4 @@
 .env
 /vendor/
-index.php
 composer.lock
+index.php

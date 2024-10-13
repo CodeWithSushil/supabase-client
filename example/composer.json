@@ -2,17 +2,14 @@
     "name": "supabase-php/supabase-client",
     "description": "Supabase for PHP client.",
     "keywords": ["supabase","supabase-php","supabase-client"],
-    "version": "1.0.4",
+    "version": "1.0.3",
     "type": "library",
     "require": {
-      "php": "^7.0||^8.0",
+      "php": "^7.0||^8.3",
       "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.12",
-        "symfony/polyfill-php80": "^1.31",
-        "symfony/polyfill-ctype": "^1.31",
-        "symfony/polyfill-mbstring": "^1.31"
+        "phpstan/phpstan": "^1.12"
     },
     "license": "MIT",
     "autoload": {
@@ -37,11 +34,6 @@
           "role": "Developer"
         }
     ],
-    "scripts": {
-      "test": [
-        "@php vendor/bin/phpstan analyse src tests --ansi"
-      ]
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

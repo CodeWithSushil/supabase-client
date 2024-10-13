@@ -1,0 +1,27 @@
+# Rule
+version: 2
+updates:
+  # This section defines updates for Composer dependencies
+  - package-ecosystem: "composer"
+    # Directory where the Composer file is located
+    directory: "/"
+    # Frequency of the updates (daily, weekly, monthly)
+    schedule:
+      interval: "weekly"
+    # Optionally, you can set a time for the updates
+    # time: "08:00"
+    # Optionally, set a day for weekly updates (monday, tuesday, etc.)
+    # day: "monday"
+    # Optionally, ignore certain dependencies or versions
+    # ignore:
+    #   - dependency-name: "vendor/package"
+    #     versions: ["1.x", "2.0.0"]
+    # Optionally, configure the behavior of pull requests
+    pull-request-branch-name:
+      separator: "_"
+    commit-message:
+      prefix: "dependabot:"
+      include: "scope"
+    target-branch: "master"
+    versioning-strategy: "increase"
+    rebase-strategy: "auto"
