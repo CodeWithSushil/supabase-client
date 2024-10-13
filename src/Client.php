@@ -1,19 +1,27 @@
 <?php
 namespace Supabase;
 use Supabase\Supabase\Supabase;
+use Dotenv\Dotenv;
 
 class Client extends Supabase
 {
-  public static function Supabase(){
-    echo "hello Supabase";
+  public static function connection()
+  {
+    $env = dirname(__DIR__);
+    $dotenv = Dotenv::createImmutable($env);
+    $dotenv->load();
+
+    $URL = $_ENV['SB_URL'];
+    $API_KEY = $_ENV['SB_APIKEY'];
+    $clinet = new Supabase($URL, $API_KEY);
   }
 
-  public function getAllData($table=null)
+  public static function getAllData($table=null)
   {
     if (!isset($table)) {
-      echo "Please provide your Supabase table name.";
+     print("Please provide your table name.");
     } else {
-      $path = "$this->url/$table";
+      echo $path = parent::url/$table;
       $html = $this->grab($path, "GET");
       $data = json_decode($html, true);
       return $data;
@@ -23,7 +31,7 @@ class Client extends Supabase
   public function getSingleData($table=null, $query=[])
   {
     if (!isset($table)) {
-      echo "Please provide your Supabase table name.";
+      echo "Please provide your table name.";
     } elseif(!isset($query)) {
       echo "Please provide your column name.";
     } else {
@@ -37,7 +45,7 @@ class Client extends Supabase
   public function postData($table=null, $query=[])
   {
     if (!isset($table)) {
-      echo "Please provide your Supabase table name.";
+      echo "Please provide your table name.";
     } elseif (!isset($query)) {
       echo "Please provide your data.";
     } else {
@@ -50,7 +58,7 @@ class Client extends Supabase
   public function updateData($table=null, int $id=null, $query=[])
   {
     if (!isset($table)) {
-      echo "Please provide your Supabase table name.";
+      echo "Please provide your table name.";
     } elseif (!isset($id)) {
       echo "Please provide id.";
     } elseif (!isset($query)) {
@@ -65,7 +73,7 @@ class Client extends Supabase
   public function deleteData($table=null, int $id=null)
   {
     if (!isset($table)) {
-      echo "Please provide your Supabase table name.";
+      echo "Please provide your table name.";
     } elseif (!isset($id)) {
       echo "Please provide id.";
     } else {
