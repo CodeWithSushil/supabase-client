@@ -102,4 +102,12 @@ class Functions extends Supabase
     return $html;
   }
 
+  public function config(){
+      $host = $_ENV['HOST'];
+      $dbname = $_ENV['DATABASE'];
+      $port = $_ENV['PORT'];
+      $user = $_ENV['USER'];
+      $pass = $_ENV['PASSWORD'];
+
+  }
 }
