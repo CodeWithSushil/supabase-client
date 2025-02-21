@@ -2,10 +2,10 @@
 
 namespace Supabase;
 
-use Throwable;
-//use Dotenv;
+use PDO;
+use Dotenv\Dotenv;
 
-class Config extends Throwable {
+class Config {
     private string $host;
     private int $port;
     private string $database;
@@ -14,6 +14,9 @@ class Config extends Throwable {
     public $connection;
 
     private function getDotEnv(){
+        $dotenv = Dotenv::createImmutable(__dir__);
+        $dotenv->safeLoad();
+
         $this->host = $_ENV['HOST'];
         $this->port = $_ENV['POST'];
         $this->database = $_ENV['DATABASE'];
@@ -21,16 +24,21 @@ class Config extends Throwable {
         $this->password = $_ENV['PASSWORD'];
     }
 
-    public static function connect(){
+    public function connect(){
 
         $this->connection = null;
 
         try {
             $this->connection = new PDO("pgsql:host={$this->host};port={$this->port};dbname={$this->database};", $this->username, $this->password);
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        } catch (Throwable $th) {
+        } catch (\Throwable $th) {
             print($th->getMessage());
         }
-        getDotEnv();
+        $this->getDotEnv();
     }
 }
+
+$con = new Config();
+$con->connect();
