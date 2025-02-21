@@ -5,8 +5,10 @@ namespace Supabase;
 use PDO;
 use Dotenv\Dotenv;
 
+require('./vendor/autoload.php');
+
 class Config {
-    private string $host;
+    private string$host;
     private int $port;
     private string $database;
     private string $username;
@@ -14,18 +16,18 @@ class Config {
     public $connection;
 
     private function getDotEnv(){
-        $dotenv = Dotenv::createImmutable(__dir__);
+        $dotenv = Dotenv::createImmutable('../');
         $dotenv->safeLoad();
 
         $this->host = $_ENV['HOST'];
-        $this->port = $_ENV['POST'];
-        $this->database = $_ENV['DATABASE'];
-        $this->username = $_ENV['USERNAME'];
-        $this->password = $_ENV['PASSWORD'];
+        $this->port = getenv('PORT');
+        $this->database = getenv('DATABASE');
+        $this->username = getenv('USERNAME');
+        $this->password = getenv('PASSWORD');
     }
 
     public function connect(){
-
+        $this->getDotEnv();
         $this->connection = null;
 
         try {
@@ -36,7 +38,7 @@ class Config {
         } catch (\Throwable $th) {
             print($th->getMessage());
         }
-        $this->getDotEnv();
+        //$this->getDotEnv();
     }
 }
 
