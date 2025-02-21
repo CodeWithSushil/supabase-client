@@ -41,8 +41,5 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
-    },
-  "require-dev": {
-    "phpstan/phpstan": "^2.1"
-  }
+    }
 }
