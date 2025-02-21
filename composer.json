@@ -5,7 +5,7 @@
   "keywords": ["supabase","supabase-php","supabase-client"],
     "type": "library",
     "require": {
-      "php": "^8.2"
+      "php": "^8.3"
     },
     "license": "MIT",
     "autoload": {
