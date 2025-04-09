@@ -1,5 +1,5 @@
 {
-  "$schema": "https://getcomposer.org/schem     a.json",
+  "$schema": "https://getcomposer.org/schema.json",
   "name": "supabase-php/supabase-client",
   "description": "Supabase for PHP client.",
   "keywords": ["supabase","supabase-php","supabase-client"],
