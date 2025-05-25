@@ -8,6 +8,8 @@ updates:
     # Frequency of the updates (daily, weekly, monthly)
     schedule:
       interval: "weekly"
+    labels:
+      - "dependencies"
     # Optionally, you can set a time for the updates
     # time: "08:00"
     # Optionally, set a day for weekly updates (monday, tuesday, etc.)
