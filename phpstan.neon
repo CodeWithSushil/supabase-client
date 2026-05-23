@@ -1,0 +1,16 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+
+    reportUnmatchedIgnoredErrors: true
+
+    type_coverage:
+        declare: 100
+        return_type: 100
+        param_type: 100
+        property_type: 100
+        constant: 100

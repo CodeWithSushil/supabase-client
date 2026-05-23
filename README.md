@@ -1,0 +1,179 @@
+![Supabase](https://getlogo.net/wp-content/uploads/2020/11/supabase-logo-vector.png)
+
+
+![Packagist Downloads](https://img.shields.io/packagist/dt/supabase-php/supabase-client?style=for-the-badge&logo=composer)
+![GitHub Release](https://img.shields.io/github/v/release/Ashishkumbhar01/supabase-php?style=for-the-badge)
+![GitHub License](https://img.shields.io/github/license/Ashishkumbhar01/supabase-php?style=for-the-badge)
+![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/supabase-php/supabase-client/php?style=for-the-badge)
+
+
+
+Supabase  client for PHP:
+- Realtime database, Storage, Authentication and many more.
+- [ ] When you creating your supabase table, make sure RLS (Row Level Security) option be disable.
+- [x] If RLS are enable maybe you getting some errors.
+
+---
+
+> [!WARNING]
+> if you push the code to production while Row-Level Security (RLS) is disabled, 
+it can pose a security threat to your application. To secure your app, please enable Row-Level Security. 
+Otherwise, write an Object-Oriented PDO connection with PostgreSQL.
+
+> ### Env config code:
+> ```env
+> HOST=aws-o-ap-south-pool.supabase.com
+> PORT=6543
+> USERNAME=postgres.grufgrcytvrh
+> PASSWORD=[Your Password]
+> DATABASE=postgres
+> ```
+
+---
+
+### `Install`
+* Install Supabase client for our project.
+* Than we are require supabase-client by composer.
+
+```bash
+composer require supabase-php/supabase-client      # letest
+# OR Downloads old version
+composer require supabase-php/supabase-client:"1.0.4"
+```
+
+---
+
+### Config
+Supabase client for PHP configuration with your php project/web Apps.
+
+```php
+use Supabase\Functions as Supabase;
+
+// autoload the supabase class
+require_once('vendor/autoload.php');
+
+// config
+$config = [
+  'url' => $_ENV['SB_URL'],
+  # 'apikey' => $_ENV['SB_APIKEY'],
+  'service_role' => $_ENV['SB_SERVICE_ROLE'] # If don't want disable RLS 
+];
+
+$client = new Supabase($config['url'], $config['apikey']);
+```
+if you did not have `.env` file so please create your `.env` file.
+
+```bash
+touch .env
+```
+
+if you create already your `.env` file then you will be derclare your enviroment variables names.
+
+```bash
+vi .env
+```
+
+```env
+SB_URL=https://rurtighghurtuhouger.supabase.co
+SB_API_KEY=utertu895tyut8trrvt8rtu8mutt84r548t894v98v5vtt6ut54uu85tu
+```
+
+---
+
+### `getAllData()`
+if you want to get all recorded data from your table when you saved the data then used `getAllData` function.
+
+```php
+$data = $client->getAllData('table name');
+print_r($data);
+```
+
+---
+
+### `getSingleData()`
+if you need a specifics data from specifics columns then you used `getSingleData` function.
+
+```php
+$data = $client->getSingleData('table name', 'column name');
+print_r($data);
+```
+
+---
+
+### `postData()`
+if you want to save your data to your table then used `postData` function.
+
+```php
+// posted data
+$data = [
+  'name' => 'PHP',
+  'version' => '8.3'
+];
+
+$client->postData('table name', $data, 'id');
+// 3rd option on_conflict
+```
+
+---
+
+### `updateData()`
+if you thinks something to be wrong or outdated so you will be changing that particular value from particular columns and also you updating all the data.
+Then used `updateData` function.
+
+```php
+// updated data
+$data = [
+  'name' => 'PHP',
+  'version' => '8.4'
+];
+
+$client->updateData('table name', 'id number', $data);
+```
+
+---
+
+### `deleteData()`
+if you want to Delete a specificed data from the table, then used `deleteData` function.
+you needed the id number of table data.
+
+```php
+$client->deleteData('table name', 2 //id);
+```
+
+---
+
+### `Pagination()`
+
+```php
+$client->pages('table name');
+```
+
+---
+
+### `Filtering()`
+
+```
+$client->filter('table name', 1);
+```
+
+---
+
+### `Matching()`
+
+```php
+$data = [
+  'name' => 'PHP',
+  'version' => '8.4'
+];
+
+$client->matchs('table name', $data);
+
+```
+
+---
+
+### Contributors
+<a href="https://github.com/Ashishkumbhar01/supabase-php/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Ashishkumbhar01/supabase-php" />
+</a>
+

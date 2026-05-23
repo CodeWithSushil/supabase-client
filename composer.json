@@ -1,0 +1,79 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "supabase-php/supabase-client",
+    "description": "Supabase client for PHP.",
+    "keywords": [
+        "supabase",
+        "supabase-php",
+        "supabase-client",
+        "supabase-sdk"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.29",
+        "phpstan/extension-installer": "^1.4",
+        "phpunit/phpunit": "^13.1",
+        "phpstan/phpstan": "^2.1",
+        "tomasvotruba/type-coverage": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Supabase\\Client\\": "src/Supabase/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Supabase\\Tests\\": "tests/"
+        }
+    },
+    "support": {
+        "source": "https://github.com/CodeWithSushil/supabase-client/releases",
+        "issues": "https://github.com/CodeWithSushil/supabase-client/issues"
+    },
+    "authors": [
+        {
+            "name": "Sushil Kumar",
+            "email": "sushilkumbhar77@gmail.com",
+            "role": "Developer"
+        },
+        {
+          "name": "Ashish Kumbhar",
+          "role": "Developer"
+        }
+    ],
+    "funding": [
+        {
+            "type": "Open Collective",
+            "url": "https://opencollective.com/CodeWithSushil"
+        },
+        {
+            "type": "github",
+            "url": "https://github.com/CodeWithSushil"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "scripts": {
+        "lint": "pint",
+        "test:type": "phpstan analyse",
+        "test:unit": "phpunit",
+        "test": [
+            "@test:type",
+            "@test:unit"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
