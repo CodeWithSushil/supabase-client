@@ -7,6 +7,8 @@ namespace Supabase\Client;
 use Supabase\Client\Http\CurlClient;
 use Supabase\Client\Http\Request;
 use Supabase\Client\Query\QueryBuilder;
+use Supabase\Client\Validation\ProjectUrlValidator;
+
 
 class Supabase
 {
@@ -16,6 +18,7 @@ class Supabase
         private string $url,
         private string $token
     ) {
+        ProjectUrlValidator::Validate($this->url);
         $this->request = new Request(
             new CurlClient()
         );
