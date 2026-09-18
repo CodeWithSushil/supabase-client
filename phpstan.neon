@@ -1,0 +1,13 @@
+parameters:
+    level: 8
+    paths:
+        - src
+
+    # Configuration for type-coverage extension
+    # type_coverage:
+    #    return_type: 90
+     #   param_type: 90
+      #  property_type: 90
+      #  constant_type: 100
+      #  print_suggestions: true
+

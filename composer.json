@@ -11,10 +11,13 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^8.4"
+        "php": "^8.4",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^2.0"
     },
     "require-dev": {
         "laravel/pint": "^1.32",
+        "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.2",
         "phpunit/phpunit": "^13.3",
         "tomasvotruba/type-coverage": "^2.3"
@@ -28,6 +31,10 @@
         "psr-4": {
             "Supabase\\Tests\\": "tests/"
         }
+    },
+    "suggest":{
+        "ext-curl": "cURL extentsion is required",
+        "ext-json": "Required for processing JSON payloads from Supabase API responses."
     },
     "support": {
         "source": "https://github.com/CodeWithSushil/supabase-client/releases",
@@ -54,7 +61,16 @@
     "config": {
         "optimize-autoloader": true,
         "sort-packages": true,
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "scripts": {
+        "pint": "pint",
+        "phpstan": "phpstan analyse",
+        "lint": ["@pint", "@phpstan"],
+        "test": "phpunit"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

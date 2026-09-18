@@ -1,4 +1,6 @@
-/.env
-/vendor/
-/composer.lock
-/.phpunit.cache/
+.env
+vendor/
+composer.lock
+.phpunit.cache/
+.phpunit.result.cache
+
