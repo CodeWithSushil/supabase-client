@@ -15,12 +15,12 @@
         "psr/http-message": "^2.0"
     },
     "require-dev": {
-        "laravel/pint": "*",
-        "nikic/php-parser": "*",
+        "laravel/pint": "^1.32",
+        "nikic/php-parser": "^5.9",
         "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan": "*",
+        "phpstan/phpstan": "^2.2",
         "phpunit/phpunit": "^11.5",
-        "tomasvotruba/type-coverage": "*"
+        "tomasvotruba/type-coverage": "^2.3"
     },
     "license": "MIT",
     "autoload": {
