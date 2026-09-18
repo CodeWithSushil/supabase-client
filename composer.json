@@ -9,18 +9,19 @@
         "supabase-sdk"
     ],
     "type": "library",
+    "license": "MIT",
     "require": {
-        "php": "^8.2.0",
-        "vlucas/phpdotenv": "^5.6"
+        "php": "^8.4"
     },
     "require-dev": {
-        "pestphp/pest": "^3.8",
-        "phpstan/phpstan": "^2.1"
+        "laravel/pint": "^1.32",
+        "phpstan/phpstan": "^2.2",
+        "phpunit/phpunit": "^13.3",
+        "tomasvotruba/type-coverage": "^2.3"
     },
-    "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Supabase\\Client\\": "src/"
+            "Supabase\\Client\\": "src/Supabase/"
         }
     },
     "autoload-dev": {
@@ -50,14 +51,11 @@
             "url": "https://opencollective.com/CodeWithSushil"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
         "sort-packages": true,
-        "preferred-install": "dist",
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
-    }
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

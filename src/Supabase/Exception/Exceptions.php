@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Supabase\Client;
+namespace Supabase\Client\Exception;
 
 class Exceptions extends Exception {
   public static function Error()

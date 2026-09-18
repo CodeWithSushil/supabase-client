@@ -4,24 +4,22 @@ declare(strict_types=1);
 
 namespace Supabase\Client;
 
-use Exception;
+use RuntimeException;
 
 final readonly class Supabase
 {
-    private $apikey;
-    protected $url;
-
     public function __construct(
-        ?string $url=null,
-        ?string $apikey=null
-    )
+        private array $config
+    ) {
+        if(empty($config['apikey'])){
+            throw new Exception('Supabase API Key required');
+        }
 
-    public function __construct(
-        private ?string $url=null,
-        private ?string $apikey=null
-    )
-    {
-    if(!filter_var($url, FILTER_VALIDATE_URL)
+        if(empty($config['url'])){
+            throw new Exception('Supabase Project URL required.');
+        }
+
+        if(!filter_var($url, FILTER_VALIDATE_URL)
     {
         if(!filter_var($url, FILTER_VALIDATE_URL))
         {
