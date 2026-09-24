@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Supabase\\Client\\": "src/Supabase/"
+            "Supabase\\": "src/Supabase/"
         }
     },
     "autoload-dev": {
@@ -67,10 +67,19 @@
         }
     },
     "scripts": {
-        "pint": "pint",
+        "pint": "pint --parallel",
         "phpstan": "phpstan analyse",
-        "lint": ["@pint", "@phpstan"],
-        "test": "phpunit"
+        "lint": [
+            "@pint",
+            "@phpstan"
+        ],
+        "test:lint": "pint --parallel --test",
+        "test:unit": "phpunit",
+        "tests": [
+            "@test:lint",
+            "@phpstan",
+            "@test:unit"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true

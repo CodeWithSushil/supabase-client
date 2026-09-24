@@ -85,4 +85,4 @@ jobs:
         run: composer install --no-interaction --prefer-dist
 
       - name: Run tests
-        run: composer test:unit
+        run: composer run tests
