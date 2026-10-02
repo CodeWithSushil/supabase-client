@@ -19,8 +19,8 @@
         "laravel/pint": "^1.32",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.2",
-        "phpunit/phpunit": "^13.3",
-        "tomasvotruba/type-coverage": "^2.3"
+        "phpunit/phpunit": "^13.4",
+        "tomasvotruba/type-coverage": "^2.4"
     },
     "autoload": {
         "psr-4": {
