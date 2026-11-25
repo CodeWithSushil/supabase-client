@@ -1,0 +1,22 @@
+{
+    "name": "supabase-php/supabase-client",
+    "description": "Supabase Client for PHP.",
+    "type": "library",
+    "require": {
+        "php": "^8.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Supabase\\Client\\": "src/Supabase/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sushil Kumar",
+            "email": "sushilkumbhar77@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
